@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "wakatime.vscode-wakatime"
+        "wakatime.vscode-wakatime",
+        "vscjava.vscode-java-dependency"
     ]
 }
