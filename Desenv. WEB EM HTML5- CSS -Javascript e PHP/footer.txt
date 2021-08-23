@@ -1,0 +1,1 @@
+document.write('<center><p>Copyright 2020, Jose Icaro /Matricula: 202003439703.<br>Todos os direitos reservados</p></center>')
