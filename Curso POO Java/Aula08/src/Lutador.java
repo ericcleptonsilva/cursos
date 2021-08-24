@@ -16,7 +16,7 @@ public class Lutador {
         System.out.println("Diretamente do " + this.getNacionalidade());
         System.out.println("com " + this.getIdade() + " anos e " + this.getAltura() + "cm de altura");
         System.out.println("pesando " + this.getPeso() + "kg, com " + this.getVitorias() + " vitorias,");
-        System.out.println(this.getDerrotas() + " derrotas e " + getEmpates() + " empates");
+        System.out.println(this.getDerrotas() + " derrotas e " + this.getEmpates() + " empates");
         System.out.println("---------------------------------");
     }
 
