@@ -11,14 +11,14 @@ with open('Sobrenome.txt', 'r') as Sobrenome:
     lista_sobrenome = Sobrenome.readlines()
 for i in range(n):
     nome = lista_nome[i]
-    sobrenoem = lista_sobrenome[i]
+    sobrenome = lista_sobrenome[i]
     idade = random.randint(1, 100)
     altura = random.uniform(1.50, 2.00)
     # receber nomes linha por linha
     nome_completo = 'Nome: {} {}, idade: {} anos, altura: {:.2f}cm\n'.format(
-        nome.strip(), sobrenoem.strip(), idade, altura)
+        nome.strip(), sobrenome.strip(), idade, altura)
     print(nome_completo)
-    # adicionas as strings na lista nomesL
+    # adicionar as strings na lista nomesL
     nomesL.append(nome_completo)
 arquivo.writelines(nomesL)
 

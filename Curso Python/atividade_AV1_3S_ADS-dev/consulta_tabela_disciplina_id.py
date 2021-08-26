@@ -5,7 +5,7 @@ class ConsultaTabelaDisciplinaId:
     def colsutDisId(self):
         lista = []
         try:
-            ''' abertura de conexao e aquisição'''
+            ''' abertura de conexão e aquisição'''
             conn = servicesdb.ConectarDB()
             '''Consulta na tabelas disciplina na coluna codigo'''
             conn.cursordb.execute(''' SELECT codigo FROM disciplinas; ''')

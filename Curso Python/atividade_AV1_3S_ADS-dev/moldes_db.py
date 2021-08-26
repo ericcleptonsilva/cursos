@@ -22,10 +22,11 @@ class Alunosdb:
             self.lista_d.append(d)
 
 
-class Disciplinasdb:
-    def __init__(self):
-        self.id = None
-        self.nome = RepoDisciplinas().gen_nome()
+class Disciplinasdb(Alunosdb):
+    def __init__(self, id, nome, codig):
+        super().__init__()
+        self.id = id
+        self.nome = nome  # RepoDisciplinas().gen_nome()
         self.codigo = RepoDisciplinas().gen_codigo()
 
 

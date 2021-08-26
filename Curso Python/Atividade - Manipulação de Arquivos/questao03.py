@@ -10,7 +10,7 @@ for copiaN in listanome:
     #vai remover o nome que contar esse caracter especial //
     if '//' in copiaN:
         text01.remove(copiaN)
-# vai adiciona novamente nomes na lista lista01 os nomer como a string formatada
+# vai adicionar novamente nomes na lista lista01 os nomes como a string formatada
 for i in text01:
     lista01.append(f'{i}\n')
 
