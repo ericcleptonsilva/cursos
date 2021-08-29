@@ -1,13 +1,13 @@
 public interface Puclicacao {
 
-    public abstract void abrir();
+    public void abrir();
 
-    public abstract void fechar();
+    public void fechar();
 
-    public abstract void folhear();
+    public void folhear(int pagina);
 
-    public abstract void avancarpagina();
+    public void avancarpagina();
 
-    public abstract void voltarpagina();
+    public void voltarpagina();
 
 }
