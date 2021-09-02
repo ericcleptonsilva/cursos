@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'MoedasPage.dart';
 
 class MyApp extends StatelessWidget {
+  // ignore: non_constant_identifier_names
   const MyApp({Key, key}) : super(key: key);
 
   @override
