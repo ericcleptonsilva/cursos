@@ -1,6 +1,7 @@
+import 'package:cripto_moeda/pages/HomePage.dart';
 import 'package:flutter/material.dart';
 
-import 'MoedasPage.dart';
+
 
 class MyApp extends StatelessWidget {
   // ignore: non_constant_identifier_names
@@ -15,6 +16,6 @@ class MyApp extends StatelessWidget {
             primaryColor: Colors.deepPurpleAccent,
             floatingActionButtonTheme: FloatingActionButtonThemeData(
                 backgroundColor: Colors.deepPurpleAccent)),
-        home: MoedasPage());
+        home: HomePage());
   }
 }
