@@ -1,8 +1,11 @@
+import 'package:cripto_moeda/configs/Appsettings.dart';
 import 'package:cripto_moeda/models/Moedas.dart';
 import 'package:cripto_moeda/pages/MoedasDetalhesPage.dart';
+import 'package:cripto_moeda/repositories/FavoritosRepository.dart';
 import 'package:cripto_moeda/repositories/MoedaRepository.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class MoedasPage extends StatefulWidget {
   MoedasPage({Key? key}) : super(key: key);
@@ -13,13 +16,43 @@ class MoedasPage extends StatefulWidget {
 
 class _MoedasPageState extends State<MoedasPage> {
   final tabela = MoedaRepository.tabela;
-  NumberFormat real = NumberFormat.currency(locale: 'pt_BR', name: 'R\$');
+  late NumberFormat real;
+  late Map<String, String> locais;
   List<Moedas> selecionada = [];
+  late FavoritosRepository favoritosRepository;
 
-  appBarDinamia() {
+  readNumberFormart() {
+    locais = context.watch<Appsettings>().localeName;
+    real =
+        NumberFormat.currency(locale: locais['locale'], name: locais['name']);
+  }
+
+  changeLanguageButton() {
+    final locale = locais['locale'] == 'pt_BR' ? 'un_US' : 'pt_BR';
+    final name = locais['locale'] == 'pt_BR' ? '\$' : 'R\$';
+    return PopupMenuButton(
+      icon: Icon(Icons.language),
+      itemBuilder: (context) => [
+        PopupMenuItem(
+            child: ListTile(
+          leading: Icon(Icons.swap_vert),
+          title: Text('Usar $locale'),
+          onTap: () {
+            context.read<Appsettings>().setLocale(locale, name);
+            Navigator.pop(context);
+          },
+        ))
+      ],
+    );
+  }
+
+  appBarDinamica() {
     if (selecionada.isEmpty) {
       return AppBar(
         title: Text("Cripto Moedas"),
+        actions: [
+          changeLanguageButton(),
+        ],
       );
     } else {
       return AppBar(
@@ -49,10 +82,21 @@ class _MoedasPageState extends State<MoedasPage> {
         MaterialPageRoute(builder: (_) => MoedasDetalhesPage(moedas: moedas)));
   }
 
+  limparSelecionadas() {
+    setState(() {
+      selecionada = [];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    /// favoritosRepository = Provider.of<FavoritosRepository>(context);
+
+    favoritosRepository = context.watch<FavoritosRepository>();
+    readNumberFormart();
+
     return Scaffold(
-      appBar: appBarDinamia(),
+      appBar: appBarDinamica(),
       body: ListView.separated(
         itemBuilder: (BuildContext context, int moeda) {
           return ListTile(
@@ -69,12 +113,22 @@ class _MoedasPageState extends State<MoedasPage> {
                     child: Image.asset(tabela[moeda].icone),
                     width: 40,
                   )),
-            title: Text(
-              tabela[moeda].nome,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+            title: Row(
+              children: [
+                Text(
+                  tabela[moeda].nome,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                if (favoritosRepository.lista.contains(tabela[moeda]))
+                  Icon(
+                    Icons.circle,
+                    color: Colors.amber,
+                    size: 8,
+                  )
+              ],
             ),
             trailing: Text(
               real.format(tabela[moeda].preco),
@@ -91,14 +145,17 @@ class _MoedasPageState extends State<MoedasPage> {
             onTap: () => mostrardetalhes(tabela[moeda]),
           );
         },
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.only(top: 10),
         separatorBuilder: (_, __) => Divider(),
         itemCount: tabela.length,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: selecionada.isNotEmpty
           ? FloatingActionButton.extended(
-              onPressed: () {},
+              onPressed: () {
+                favoritosRepository.salvaMoedasFavoritas(selecionada);
+                limparSelecionadas();
+              },
               label: Text("Favoritar"),
               icon: Icon(Icons.star),
             )
