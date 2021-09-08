@@ -35,7 +35,7 @@ class _FavoritasPageState extends State<FavoritasPage> {
               : ListView.builder(
                   itemCount: favoritas.lista.length,
                   itemBuilder: (_, index) {
-                    return MoedaCard(moedas: favoritas.lista[index]);
+                    return MoedaCard(moeda: favoritas.lista[index]);
                   },
                 );
         }),

@@ -18,7 +18,7 @@ class _MoedasPageState extends State<MoedasPage> {
   final tabela = MoedaRepository.tabela;
   late NumberFormat real;
   late Map<String, String> locais;
-  List<Moedas> selecionada = [];
+  List<Moeda> selecionada = [];
   late FavoritosRepository favoritosRepository;
 
   readNumberFormart() {
@@ -77,9 +77,9 @@ class _MoedasPageState extends State<MoedasPage> {
     }
   }
 
-  mostrardetalhes(Moedas moedas) {
+  mostrardetalhes(Moeda moedas) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (_) => MoedasDetalhesPage(moedas: moedas)));
+        MaterialPageRoute(builder: (_) => MoedasDetalhesPage(moeda: moedas)));
   }
 
   limparSelecionadas() {

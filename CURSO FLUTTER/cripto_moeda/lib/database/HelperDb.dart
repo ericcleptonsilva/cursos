@@ -5,12 +5,12 @@ import 'package:path/path.dart';
 class HelperDb {
   //Construtor com acesso privado
   HelperDb._();
-  //Criar uma esancia de HelperDb
+  //Criar uma estancia de HelperDb
   static final HelperDb instanciaHelperDb = HelperDb._();
   //Criar a instancia SQlite
   static Database? _database;
 
-  get database async {
+  get dataBase async {
     if (_database != null) return _database;
 
     return await _initDAtabase();
@@ -39,7 +39,7 @@ class HelperDb {
 
   ''';
   String get _carteira => '''
-  CREATE TABLE carteira(
+  CREATE TABLE carteira (
     sigla TEXT PRIMARY KEY,
     moeda TEXT,
     quantidade TEXT
@@ -51,8 +51,8 @@ class HelperDb {
   String get _historico => '''
   CREATE TABLE historico (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    data_operaca TEXT,
-    tipo_operaca TEXT,
+    data_operacao INT,
+    tipo_operacao TEXT,
     moeda TEXT,
     sigla TEXT,
     valor REAL,

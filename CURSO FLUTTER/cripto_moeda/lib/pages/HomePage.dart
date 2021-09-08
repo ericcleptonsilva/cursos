@@ -1,4 +1,4 @@
-import 'package:cripto_moeda/MoedasPage.dart';
+import 'package:cripto_moeda/pages/MoedasPage.dart';
 import 'package:cripto_moeda/pages/CarteiraPage.dart';
 import 'package:cripto_moeda/pages/ConfiguracoesPage.dart';
 import 'package:cripto_moeda/pages/FavoritasPage.dart';

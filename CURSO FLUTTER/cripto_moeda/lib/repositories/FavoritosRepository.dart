@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 class FavoritosRepository extends ChangeNotifier {
-  List<Moedas> _lista = [];
+  List<Moeda> _lista = [];
   late LazyBox box;
 
   FavoritosRepository() {
@@ -19,20 +19,20 @@ class FavoritosRepository extends ChangeNotifier {
 
   _openBox() async {
     Hive.registerAdapter(MoedaHiveAdapater());
-    box = await Hive.openLazyBox<Moedas>('moedas_favoritas');
+    box = await Hive.openLazyBox<Moeda>('moedas_favoritas');
   }
 
   _readFavoritos() {
     box.keys.forEach((moeda) async {
-      Moedas moedas = await box.get(moeda);
+      Moeda moedas = await box.get(moeda);
       _lista.add(moedas);
       notifyListeners();
     });
   }
 
-  UnmodifiableListView<Moedas> get lista => UnmodifiableListView(_lista);
+  UnmodifiableListView<Moeda> get lista => UnmodifiableListView(_lista);
 
-  salvaMoedasFavoritas(List<Moedas> moedas) {
+  salvaMoedasFavoritas(List<Moeda> moedas) {
     moedas.forEach((moeda) {
       if (!_lista.any((atual) => atual.sigla == moeda.sigla)) {
         _lista.add(moeda);
@@ -42,7 +42,7 @@ class FavoritosRepository extends ChangeNotifier {
     notifyListeners();
   }
 
-  removerMoedasFavoritas(Moedas moeda) {
+  removerMoedasFavoritas(Moeda moeda) {
     _lista.remove(moeda);
     box.delete(moeda.sigla);
     notifyListeners();

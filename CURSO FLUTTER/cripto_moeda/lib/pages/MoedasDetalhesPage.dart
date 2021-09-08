@@ -1,12 +1,14 @@
 import 'package:cripto_moeda/models/Moedas.dart';
+import 'package:cripto_moeda/repositories/ContaRepository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class MoedasDetalhesPage extends StatefulWidget {
-  Moedas moedas;
-  MoedasDetalhesPage({Key? key, required this.moedas}) : super(key: key);
+  Moeda moeda;
+  MoedasDetalhesPage({Key? key, required this.moeda}) : super(key: key);
 
   @override
   _MoedasDetalhesPageState createState() => _MoedasDetalhesPageState();
@@ -17,10 +19,12 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
   final _form = GlobalKey<FormState>();
   final _valor = TextEditingController();
   double quantidade = 0;
+  late ContaRepository contaRepository;
 
-  comprar() {
+  Future<void> comprar() async {
     if (_form.currentState!.validate()) {
       // salvar a compra
+      await contaRepository.comprar(widget.moeda, double.parse(_valor.text));
 
       Navigator.pop(context);
 
@@ -31,9 +35,11 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
 
   @override
   Widget build(BuildContext context) {
+    contaRepository = Provider.of<ContaRepository>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.moedas.nome),
+        title: Text(widget.moeda.nome),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
@@ -47,13 +53,13 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
                 children: [
                   SizedBox(
                     width: 50,
-                    child: Image.asset(widget.moedas.icone),
+                    child: Image.asset(widget.moeda.icone),
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Text(
-                    real.format(widget.moedas.preco),
+                    real.format(widget.moeda.preco),
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w600,
@@ -75,7 +81,7 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
                       ),
                       padding: EdgeInsets.all(12),
                       child: Text(
-                        '$quantidade ${widget.moedas.sigla}',
+                        '$quantidade ${widget.moeda.sigla}',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.green,
@@ -107,7 +113,9 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
                   if (value!.isEmpty) {
                     return 'Informe o valor da compra!';
                   } else if (double.parse(value) < 50) {
-                    return 'Compra mínima é R\$ 50,00';
+                    return 'Compra mínima é R\$ 50,00!';
+                  } else if (double.parse(value) > contaRepository.saldo) {
+                    return 'Você não tem saldo Suficiente!';
                   }
                   return null;
                 },
@@ -115,7 +123,7 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
                   setState(() {
                     quantidade = (value.isEmpty)
                         ? 0
-                        : double.parse(value) / widget.moedas.preco;
+                        : double.parse(value) / widget.moeda.preco;
                   });
                 },
               ),

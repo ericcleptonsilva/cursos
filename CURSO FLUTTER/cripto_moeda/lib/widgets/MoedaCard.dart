@@ -7,9 +7,9 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class MoedaCard extends StatefulWidget {
-  Moedas moedas;
+  Moeda moeda;
 
-  MoedaCard({Key? key, required this.moedas}) : super(key: key);
+  MoedaCard({Key? key, required this.moeda}) : super(key: key);
 
   @override
   _MoedaCardState createState() => _MoedaCardState();
@@ -27,7 +27,7 @@ class _MoedaCardState extends State<MoedaCard> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => MoedasDetalhesPage(moedas: widget.moedas),
+        builder: (_) => MoedasDetalhesPage(moeda: widget.moeda),
       ),
     );
   }
@@ -36,7 +36,7 @@ class _MoedaCardState extends State<MoedaCard> {
     setState(() {
       Navigator.pop(context);
       Provider.of<FavoritosRepository>(context, listen: false)
-          .removerMoedasFavoritas(widget.moedas);
+          .removerMoedasFavoritas(widget.moeda);
     });
   }
 
@@ -52,7 +52,7 @@ class _MoedaCardState extends State<MoedaCard> {
           child: Row(
             children: [
               Image.asset(
-                widget.moedas.icone,
+                widget.moeda.icone,
                 height: 40,
               ),
               Expanded(
@@ -62,14 +62,14 @@ class _MoedaCardState extends State<MoedaCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.moedas.nome,
+                        widget.moeda.nome,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
-                        widget.moedas.sigla,
+                        widget.moeda.sigla,
                         style: TextStyle(
                           fontSize: 13,
                           color: Colors.black45,
@@ -89,7 +89,7 @@ class _MoedaCardState extends State<MoedaCard> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
-                  real.format(widget.moedas.preco),
+                  real.format(widget.moeda.preco),
                   style: TextStyle(
                     fontSize: 16,
                     color: precoColor['down'],

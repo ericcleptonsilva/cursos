@@ -64,7 +64,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
     setState(() {
       totalCarteira = contaRepository.saldo;
       for (var posicao in listaCarteira) {
-        totalCarteira += posicao.moedas.preco * posicao.quantidade;
+        totalCarteira += posicao.moeda.preco * posicao.quantidade;
       }
     });
   }
@@ -75,8 +75,8 @@ class _CarteiraPageState extends State<CarteiraPage> {
       graficoLabel = 'Saldo';
       graficoValor = contaRepository.saldo;
     } else {
-      graficoLabel = posicaoCarteira[index].moedas.nome;
-      graficoValor = posicaoCarteira[index].moedas.preco *
+      graficoLabel = posicaoCarteira[index].moeda.nome;
+      graficoValor = posicaoCarteira[index].moeda.preco *
           posicaoCarteira[index].quantidade;
     }
   }
@@ -95,7 +95,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
 
       double porcentagem = 0;
       if (!isSaldo) {
-        porcentagem = posicaoCarteira[i].moedas.preco *
+        porcentagem = posicaoCarteira[i].moeda.preco *
             posicaoCarteira[i].quantidade /
             totalCarteira;
       } else {

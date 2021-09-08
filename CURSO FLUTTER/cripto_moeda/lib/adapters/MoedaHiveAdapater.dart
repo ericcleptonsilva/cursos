@@ -1,13 +1,13 @@
 import 'package:cripto_moeda/models/Moedas.dart';
 import 'package:hive/hive.dart';
 
-class MoedaHiveAdapater extends TypeAdapter<Moedas> {
+class MoedaHiveAdapater extends TypeAdapter<Moeda> {
   @override
   final typeId = 0;
 
   @override
-  Moedas read(BinaryReader reader) {
-    return Moedas(
+  Moeda read(BinaryReader reader) {
+    return Moeda(
       icone: reader.readString(),
       nome: reader.readString(),
       sigla: reader.readString(),
@@ -16,7 +16,7 @@ class MoedaHiveAdapater extends TypeAdapter<Moedas> {
   }
 
   @override
-  void write(BinaryWriter writer, Moedas moeda) {
+  void write(BinaryWriter writer, Moeda moeda) {
     writer.writeString(moeda.icone);
     writer.writeString(moeda.nome);
     writer.writeString(moeda.sigla);
