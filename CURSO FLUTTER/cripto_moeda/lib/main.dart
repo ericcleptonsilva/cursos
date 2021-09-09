@@ -1,5 +1,6 @@
 import 'package:cripto_moeda/configs/Appsettings.dart';
 import 'package:cripto_moeda/configs/HiveConfig.dart';
+
 import 'package:cripto_moeda/repositories/ContaRepository.dart';
 import 'package:cripto_moeda/repositories/FavoritosRepository.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,8 @@ import 'MyApp.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await HiveConfig.start(); 
+  await HiveConfig.start();
+
 
   runApp(MultiProvider(
     providers: [

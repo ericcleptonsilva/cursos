@@ -21,7 +21,7 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
   double quantidade = 0;
   late ContaRepository contaRepository;
 
-  Future<void> comprar() async {
+  comprar() async {
     if (_form.currentState!.validate()) {
       // salvar a compra
       await contaRepository.comprar(widget.moeda, double.parse(_valor.text));

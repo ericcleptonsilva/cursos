@@ -53,8 +53,8 @@ class ContaRepository extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> comprar(Moeda moeda, double valor) async {
-    database = HelperDb.instanciaHelperDb.dataBase;
+  comprar(Moeda moeda, double valor) async {
+    database = await HelperDb.instanciaHelperDb.dataBase;
     await database.transaction((txn) async {
       // verificar se a moeda foi comprada antes
       final posicaoMoeda = await txn.query(
@@ -83,13 +83,15 @@ class ContaRepository extends ChangeNotifier {
       }
       //Inserir a compra no histórico
       await txn.insert('historico', {
-        'sigla': moeda.sigla,
-        'moeda': moeda.nome,
-        'quantidade': (valor / moeda.preco).toString(),
-        'valor': valor,
-        'tipo_operacao': 'compra',
         'data_operacao': DateTime.now().millisecondsSinceEpoch,
-      });
+            'tipo_operacao': 'compra',
+            'moeda': moeda.nome,
+        'sigla': moeda.sigla,
+        'valor': valor,
+        'quantidade': (valor / moeda.preco).toString(),
+        
+      },
+          conflictAlgorithm: ConflictAlgorithm.replace);
 
       //atualizar o saldo
       await txn.update('conta', {'saldo': saldo - valor});

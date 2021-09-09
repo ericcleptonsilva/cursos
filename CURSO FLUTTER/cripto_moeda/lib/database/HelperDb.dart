@@ -10,6 +10,7 @@ class HelperDb {
   //Criar a instancia SQlite
   static Database? _database;
 
+
   get dataBase async {
     if (_database != null) return _database;
 
@@ -27,8 +28,8 @@ class HelperDb {
   _onCreate(_database, versao) async {
     await _database.execute(_conta);
     await _database.execute(_carteira);
-    await _database.execute(_historico);
-    await _database.insert('conta', {'saldo': 0});
+    await _database.delete(_historico);
+    await _database.execute(_delete);
   }
 
   String get _conta => '''
@@ -51,13 +52,17 @@ class HelperDb {
   String get _historico => '''
   CREATE TABLE historico (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    data_operacao INT,
+    data_operacao NUMERIC,
     tipo_operacao TEXT,
     moeda TEXT,
     sigla TEXT,
     valor REAL,
     quantidade TEXT
   );
+
+  ''';
+  String get _delete => '''
+  DROP TABLE IF EXISTS historico 
 
   ''';
 }

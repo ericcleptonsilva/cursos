@@ -4,7 +4,7 @@ class MoedaRepository {
   static List<Moeda> tabela = [
     Moeda(
       icone: "images/btc.png",
-      nome: "BitCoin",
+      nome: "Bitcoin",
       sigla: "BTC",
       preco: 257781.00,
     ),
