@@ -14,5 +14,6 @@
         "Disciplinasdb",
         "codig",
         "colsut"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
