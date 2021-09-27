@@ -13,6 +13,7 @@
         "adiciona",
         "Alunosdb",
         "Apendice",
+        "área",
         "Canino",
         "codig",
         "colsut",
@@ -21,10 +22,13 @@
         "domestico",
         "Felinos",
         "funciona",
+        "Funcionario",
         "Noturna",
         "Onça",
+        "opcionais",
         "redirecione",
         "Usuario",
+        "usuário",
         "visao"
     ],
     "git.ignoreLimitWarning": true

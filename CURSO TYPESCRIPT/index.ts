@@ -1,4 +1,22 @@
+// utilizando o caracter "?" para variáveis opcionais
+interface IUsuario{
+    id: string;
+    email: string;
+    cargo?: 'Gerente' | 'Coordenador' | 'Supervisor' | 'Funcionario';
+}
+
+
+
+function redirecione(usuario: IUsuario) { 
+
+    if (usuario.cargo) {
+      // redirecionar(usuario.cargo)
+    }
+    // redirecionar para a área do usuário
+}
+
 // Desenvolvendo condicionais a parti de parâmetros
+/*
 interface IUsuario{
     id: string;
     email: string;
@@ -18,6 +36,8 @@ function redirecione(usuario: IUsuario | IAdmin) {
     }
     // redirecionar para a área do usuário
 }
+*/
+
 //Generic types
 /*
 function adicionaApendiceLista<T>(array: T[], value: T) {
