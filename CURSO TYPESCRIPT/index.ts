@@ -1,4 +1,18 @@
+// como importa bibliotecas com typescript
+export const numero = 2;
+
+/*import $ from 'jquery';
+
+$.fn.extend({
+    novaFuncao() {
+        console.log('Chamou nova função!');
+    }
+});
+
+$('body').novaFuncao();
+*/
 // Criando variáveis com propriedade readonly e private
+/*
 interface AnimalDomestico{
     nome: string;
     idade: number;
@@ -19,6 +33,7 @@ class MeuCachorro implements CachorroSomenteLeitura{
     }
 
 }
+*/
 
 
 // utilizando o caracter "?" para variáveis opcionais
