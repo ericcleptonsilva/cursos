@@ -1,6 +1,15 @@
+// Tratando a tag input
+const input = document.getElementById('input') as HTMLInputElement;
+
+input.addEventListener('input', (event) => {
+    const input = event.currentTarget as HTMLInputElement;
+    console.log(input.value);
+});
+
+
 // types
 // interfaces
-
+/*
 interface IAnimal {
     nome: string;
     tipo: 'terrestre' | 'aquático';
@@ -9,13 +18,13 @@ interface IAnimal {
 }
 
 // como funciona o type
-/*
+
 type IAnimal = {
     nome: string;
     tipo: 'terrestre' | 'aquático';
     fazerSom(alturaEmDecibeis: number): void;
 }
-*/
+
 
 interface IFelinos extends IAnimal{
     visaoNoturna: boolean;
@@ -43,7 +52,7 @@ const felinos: IFelinos = {
 }
 felinos.fazerSom(10);
 //como funciona types
-/*
+
 type IDomestico = IFelinos | ICanino;
 
 const animal: IDomestico = {
@@ -54,8 +63,10 @@ const animal: IDomestico = {
     visaoNoturna: false
 
 }
-*/
+
 /*const  soma = (a: number, b: number) => {
+
     return a + b;
 }
-console.log(soma(5, 0));*/
+console.log(soma(5, 0));
+*/
