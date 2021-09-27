@@ -1,4 +1,28 @@
+// Criando variáveis com propriedade readonly e private
+interface AnimalDomestico{
+    nome: string;
+    idade: number;
+    parqueFavorito?: string;
+}
+type CachorroSomenteLeitura = {
+    readonly [k in keyof AnimalDomestico]-?: AnimalDomestico[k];
+}
+
+class MeuCachorro implements CachorroSomenteLeitura{
+    nome: string;
+    idade: number;
+    parqueFavorito: string;
+
+    constructor(nome, idade) {
+        this.nome,
+        this.idade
+    }
+
+}
+
+
 // utilizando o caracter "?" para variáveis opcionais
+/*
 interface IUsuario{
     id: string;
     email: string;
@@ -14,6 +38,7 @@ function redirecione(usuario: IUsuario) {
     }
     // redirecionar para a área do usuário
 }
+*/
 
 // Desenvolvendo condicionais a parti de parâmetros
 /*
