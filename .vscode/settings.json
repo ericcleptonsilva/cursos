@@ -10,7 +10,9 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "cSpell.words": [
+        "adiciona",
         "Alunosdb",
+        "Apendice",
         "Canino",
         "codig",
         "colsut",
@@ -21,6 +23,8 @@
         "funciona",
         "Noturna",
         "Onça",
+        "redirecione",
+        "Usuario",
         "visao"
     ],
     "git.ignoreLimitWarning": true

@@ -1,11 +1,41 @@
+// Desenvolvendo condicionais a parti de parâmetros
+interface IUsuario{
+    id: string;
+    email: string;
+}
+interface IAdmin extends IUsuario {
+    cargo: 'Gerente' | 'Coordenador' | 'Supervisor';
+}
+
+
+function redirecione(usuario: IUsuario | IAdmin) {
+    if ('cargo' in usuario) {
+        if (usuario.cargo == 'Gerente') {
+            // redirecionar para a área da administração
+
+            
+        }
+    }
+    // redirecionar para a área do usuário
+}
+//Generic types
+/*
+function adicionaApendiceLista<T>(array: T[], value: T) {
+    return array.map(() =>  value);
+    
+}
+
+adicionaApendiceLista(["a"], 'a');
+*/
 // Tratando a tag input
+/*
 const input = document.getElementById('input') as HTMLInputElement;
 
 input.addEventListener('input', (event) => {
     const input = event.currentTarget as HTMLInputElement;
     console.log(input.value);
 });
-
+*/
 
 // types
 // interfaces
