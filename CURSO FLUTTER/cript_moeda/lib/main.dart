@@ -1,8 +1,24 @@
-import 'package:cript_moeda/pages/home_page.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
 
-void main() {
-  runApp(const MyApp());
+import 'package:cript_moeda/configs/app_settings.dart';
+import 'package:cript_moeda/pages/home_page.dart';
+import 'package:cript_moeda/repositores/favoritas_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'configs/hive_config.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveConfig.start();
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => FavoritasRespository()),
+      ChangeNotifierProvider(create: (context) => AppSettings()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
