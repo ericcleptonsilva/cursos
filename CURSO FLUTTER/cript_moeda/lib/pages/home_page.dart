@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, prefer_const_constructors_in_immutables
 
 import 'package:cript_moeda/pages/Favorite_page.dart';
+import 'package:cript_moeda/pages/carteira_page.dart';
+import 'package:cript_moeda/pages/configuracao_page.dart';
 import 'package:cript_moeda/pages/moedas_page.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +36,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           MoedasPage(),
           FavoritePage(),
+          CarteiraPage(),
+          CongifuracoesPage(),
         ],
         onPageChanged: setPaginaAtual,
       ),
@@ -42,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         fixedColor: Colors.blue,
         unselectedItemColor: Colors.white,
         currentIndex: paginaAtual,
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
@@ -54,6 +59,18 @@ class _HomePageState extends State<HomePage> {
               Icons.favorite,
             ),
             label: 'Favorito',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.wallet_travel_rounded,
+            ),
+            label: 'Carteira',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.paid,
+            ),
+            label: 'Configurações',
           ),
         ],
         onTap: (pagina) {

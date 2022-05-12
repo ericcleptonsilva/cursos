@@ -1,0 +1,44 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "2gua.rainbow-brackets",
+    "aaron-bond.better-comments",
+    "doraemon.vscode-code-runner",
+    "eamodio.gitlens",
+
+    "WakaTime.vscode-wakatime",
+
+    "bmewburn.vscode-intelephense-client",
+    "byCedric.vscode-expo",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "dsznajder.es7-react-js-snippets",
+    "EditorConfig.EditorConfig",
+    "eg2.vscode-npm-script",
+
+    "GitHub.vscode-pull-request-github",
+    "infeng.vscode-react-typescript",
+    "usernamehw.errorlens",
+    "styled-components.vscode-styled-components",
+    "xabikos.JavaScriptSnippets",
+    "wix.vscode-import-cost",
+    "TabNine.tabnine-vscode",
+    "natqe.reload",
+    "Gruntfuggly.todo-tree",
+    "mgmcdermott.vscode-language-babel",
+    "MS-CEINTL.vscode-language-pack-pt-BR",
+    "mhutchie.git-graph",
+    "msjsdiag.vscode-react-native",
+    "naumovs.color-highlight",
+    "njpwerner.autodocstring",
+    "PKief.material-icon-theme",
+    "Rectcircle.new-file-by-type",
+    "ritwickdey.live-sass",
+    "rocketseat.rocketseatreactnative",
+    "rocketseat.theme-omni",
+    "xyz.plsql-language",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    "vscode-icons-team.vscode-icons"
+  ]
+}

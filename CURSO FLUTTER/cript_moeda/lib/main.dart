@@ -2,6 +2,7 @@
 
 import 'package:cript_moeda/configs/app_settings.dart';
 import 'package:cript_moeda/pages/home_page.dart';
+import 'package:cript_moeda/repositores/conta_repository.dart';
 import 'package:cript_moeda/repositores/favoritas_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ void main() async {
 
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider(create: (context) => ContaRepository()),
       ChangeNotifierProvider(create: (context) => FavoritasRespository()),
       ChangeNotifierProvider(create: (context) => AppSettings()),
     ],

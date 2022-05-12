@@ -21,7 +21,7 @@ class DB {
 
   _initDatabase() async {
     return await openDatabase(
-      join(await getDatabasesPath(), 'database.db'),
+      join(await getDatabasesPath(), 'database2.db'),
       version: 1,
       onCreate: _onCreate,
     );
@@ -42,7 +42,7 @@ class DB {
    ''';
 
   String get _carteira => ''' 
-    CREATE TABLE carteira(
+    CREATE TABLE carteira (
       sigla TEXT PRIMARY KEY,
       moeda TEXT,
       quantidade TEXT 
@@ -51,14 +51,14 @@ class DB {
   ''';
 
   String get _historico => ''' 
-    CREATE TABLE historico(
+    CREATE TABLE historico (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       data_operacao INT, 
       tipo_operacao TEXT,
-      sigla TEXT,
       moeda TEXT,
-      quantidade TEXT,
-      valor REAL
+      sigla TEXT,
+      valor REAL,
+      quantidade TEXT
     );
   ''';
 }
