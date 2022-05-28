@@ -1,5 +1,9 @@
 {
-   
+   "code-runner.executorMap": {
+      
+       "typescript": "cls && npx ts-node --files --transpile-only",
+       
+   },
     "cSpell.words": [
         "ACOMODATIVA",
         "ACUIDADE",
@@ -42,13 +46,13 @@
         "Oculares",
         "OFTALMOSCOPIA",
         "onrdenar",
-        "patients",
         "Paciente",
         "patients",
         "Pesquise",
         "Reagendado",
         "REFRAÇÕES",
         "RESERVAS",
+        "resultado",
         "Sizephone",
         "Sizetitle",
         "TONOMETRIA",
@@ -60,6 +64,7 @@
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code'",
     "editor.fontWeight": "450",
+
 
     
    
