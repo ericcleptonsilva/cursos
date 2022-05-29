@@ -63,12 +63,11 @@
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code'",
-    "editor.fontWeight": "450",
-
-
-    
+    "editor.fontWeight": "450",  
    
-    "editor.codeActionsOnSave": { "source.fixAll.eslint": true }  ,  
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+    "prettier.configPath": "./.prettierrc.json",
+     
    
 
 }
