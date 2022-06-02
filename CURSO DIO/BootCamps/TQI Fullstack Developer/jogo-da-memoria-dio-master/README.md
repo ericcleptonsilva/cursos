@@ -2,7 +2,7 @@
 
 Esse é o repositório das aula de Javascript, na qual foi proposto recriaar o jogo da memória!
 
-No projeto acrecentei algumas interações, foi acrecentado efeito sonoro e uma escore. 
+No projeto acrecentei algumas interações, foi acrecentado efeitos sonoros e uma escore,  também foi adicionado responsividade para dispositivo mobile. 
 
 ### Os requisitos são
 
