@@ -1,6 +1,6 @@
 # Olá!
 
-Esse é o repositório das aula de Javascript, na qual foi proposto recriaar o jogo da memória!
+Esse é o repositório das aula de Javascript, na qual foi proposto recriar o jogo da memória!
 
 No projeto acrecentei algumas interações, foi acrecentado efeitos sonoros e uma escore,  também foi adicionado responsividade para dispositivo mobile. 
 
