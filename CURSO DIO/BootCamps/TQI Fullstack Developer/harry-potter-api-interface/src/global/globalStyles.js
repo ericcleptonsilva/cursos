@@ -1,17 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
- 
-export const GlobalStyle = createGlobalStyle`
+import HerryPotterFonts from '../assets/harry_p/HARRYP__.TTF';
+const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
-    padding: 0;
-    background: teal;
-    font-family: Open-Sans, Helvetica, Sans-Serif;
+    background-color: #F2D5A0;
   }
   @font-face {
-    font-family: 'OurFont';
-    src: url('/resources/fonts/OurFont-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
+    font-family: 'Harry P';
+    letter-spacing: 20.5px;
+    src: url(${HerryPotterFonts}) format('ttf');
+
   }
 `;
- 
+ export default GlobalStyle;
